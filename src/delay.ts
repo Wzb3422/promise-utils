@@ -1,11 +1,7 @@
-export function delay<T = void>(delayTimeMs: number, value?: T): Promise<T>{
+export function delay<T>(delayTimeMs: number, value?: T): Promise<T>{
   return new Promise(resolve => {
     setTimeout(() => {
-      if (value !== undefined) {
-        resolve(value);
-      } else {
-        resolve();
-      }
+      value !== undefined ? resolve(value) : resolve();
     }, delayTimeMs);
   })
 }
