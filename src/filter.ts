@@ -18,15 +18,16 @@ export function filter<T extends Object, V> (
 export function filter(input: any, predicate: any): any {
   return new Promise ((resolve, reject) => {
     if (!input) {
-      return []
+      return [];
     }
     const result: any[] = [];
     for (let k in input) {
-      predicate(input[k]).then((truth: any) => {
+      predicate(input[k]).then((truth: boolean) => {
         if (truth) {
-          result.push(input[k])
+          result.push(input[k]);
         }
       })
     }
+    return result;
   })
 }
