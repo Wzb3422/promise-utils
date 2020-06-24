@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "test": "yarn jest"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.0",
     "jest": "^26.0.1",

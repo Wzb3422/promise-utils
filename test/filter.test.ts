@@ -1,17 +1,15 @@
-import { filter } from '../src';
+import { filter } from '../src/filter';
 
 describe('filter', () => {
   test('filter should be defined', () => {
     expect(filter).toBeDefined();
   })
+  test('filter empty to empty', () => {
+    expect(filter({}, (v: any) => {return Promise.resolve(v)})).resolves.toEqual([])
+  })
   test('filter even numbers', () => {
     const arr = [1, 2, 3, 4, 5];
-    const predicate = (value: number) => value % 2 === 0
+    const predicate = (value: number) => Promise.resolve(value % 2 === 0)
     expect(filter(arr, predicate)).resolves.toEqual([2, 4]);
-  })
-  test('filter items whose index is even', () => {
-    const arr = [1, 2, 3, 4, 5];
-    const predicate = (value: number, index: number) => index % 2 === 0;
-    expect(filter(arr, predicate)).toEqual([1, 3, 5]);
   })
 })

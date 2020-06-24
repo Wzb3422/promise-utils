@@ -1,4 +1,4 @@
-import { delay } from '../src'
+import { delay } from '../src/delay'
 
 describe('delay', () => {
   test('delay should be defined', () => {
